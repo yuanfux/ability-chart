@@ -1,5 +1,5 @@
 # \<ability-chart\>
-
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/yuanfux/ability-chart)
 A canvas based ability chart component
 
 ## Preview
