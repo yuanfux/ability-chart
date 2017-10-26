@@ -2,20 +2,23 @@
 
 A canvas based ability chart component
 
-## Install the Polymer-CLI
+## Preview
+An easy to use and fully customizable ability chart web component based on Polymer 2.0.
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
+## Usage
+Add onto html just as normal tag elements. Use attribute `prop` to set up all the styles you want.
 
-## Viewing Your Element
-
+```html
+<ability-chart prop='{
+                  "eachPoint":[
+                  {"key":"Math", "value":85},
+                {"key":"Physics", "value":30},
+                {"key":"English", "value":55},
+                {"key":"Chemistry", "value":100},
+                {"key":"Chinese", "value":10},
+                {"key":"History", "value":100}]}'>                	
+</ability-chart>
 ```
-$ polymer serve
-```
 
-## Running Tests
-
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+## License
+MIT

@@ -15,13 +15,14 @@
 
     <test-fixture id="BasicTestFixture">
       <template>
-        <ability-chart></ability-chart>
-      </template>
-    </test-fixture>
-
-    <test-fixture id="ChangedPropertyTestFixture">
-      <template>
-        <ability-chart prop1="new-prop1"></ability-chart>
+        <ability-chart prop='{
+                  "eachPoint":[
+                  {"key":"Math", "value":85},
+                {"key":"Physics", "value":30},
+                {"key":"English", "value":55},
+                {"key":"Chemistry", "value":100},
+                {"key":"Chinese", "value":10},
+                {"key":"History", "value":100}]}'></ability-chart>
       </template>
     </test-fixture>
 
@@ -30,19 +31,11 @@
 
         test('instantiating the element with default properties works', () => {
           const element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'ability-chart');
+          assert.equal(element.tagName.toLowerCase(), 'ability-chart');
           const elementShadowRoot = element.shadowRoot;
           const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello ability-chart!');
-        });
-
-        test('setting a property on the element works', () => {
-          // Create a test fixture
-          const element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+          //assert.notEqual(elementHeader.innerHTML.indexOf(
+            //'ability-chart'), -1);
         });
 
       });
