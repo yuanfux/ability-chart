@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>ability-chart demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../ability-chart.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic ability-chart demo</h3>
+      <demo-snippet>
+        <template>
+         <div style="text-align: center">
+          <h3> customized style 1 </h3>
+          <!-- customized style 1 -->
+           <ability-chart prop='{
+                  "eachPoint":[
+                  {"key":"Math", "value":85},
+                {"key":"Physics", "value":30},
+                {"key":"English", "value":55},
+                {"key":"Chemistry", "value":100},
+                {"key":"Chinese", "value":10},
+                {"key":"History", "value":100}]}'>
+           </ability-chart>
+         </div>
+
+         <div style="text-align: center">
+          <h3> customized style 2 </h3>
+          <!-- customized style 2 -->
+           <ability-chart prop='{
+                  "dimension": 300,
+                "labelFont": "bold 12px Arial",
+                "labelFontColor":"black",
+                "fillColor":"#f60b0b",
+                "borderColor": "#f60b0b",
+                "frameBorderWidth": 1,
+                "chartBorderWidth": 1,
+                "decorLineColor": "#8d8787",
+                "chartPortion": 0.7,
+                "chartAlpha": 0.5,
+                "eachPoint":[
+                  {"key":"Agility", "value":30},
+                {"key":"Intelligence", "value":75},
+                {"key":"Strength", "value":95}]}'>
+            </ability-chart>
+          </div>
+
+          <div style="text-align: center">
+          <h3> customized style 3 </h3>
+          <!-- customized style 3 -->
+            <ability-chart prop='{
+                  "dimension": 300,
+                "labelFont": "bold 12px fantasy",
+                "labelFontColor":"black",
+                "fillColor":"#ea9513",
+                "borderColor": "#ea9513",
+                "frameBorderWidth": 1,
+                "chartBorderWidth": 1,
+                "decorLineColor": "#8d8787",
+                "chartPortion": 0.65,
+                "chartAlpha": 0.5,
+                "eachPoint":[
+                  {"key":"Leadership", "value":79},
+                {"key":"Teamwork", "value":35},
+                {"key":"Management", "value":55},
+                {"key":"Visionary", "value":89}]}'>
+            </ability-chart>
+          </div>
+
+          <div style="text-align: center">
+          <h3> customized style 4 </h3>
+          <!-- customized style 4 -->
+            <ability-chart prop='{
+                  "dimension": 300,
+                "numLayer": 3,
+                "eachLayerStyle":[
+                {
+                  "fillColor":"#d6d6d6",
+                  "borderColor": "#d6d6d6"
+                }, 
+                {
+                  "fillColor":"#9c9c9c",
+                  "borderColor": "#9c9c9c"
+                }, 
+                {
+                  "fillColor":"#7c7c7c",
+                  "borderColor": "#7c7c7c"
+                }],
+                "labelFont": "12px Arial",
+                "labelFontColor":"black",
+                "fillColor":"#d666c6",
+                "borderColor": "#d666c6",
+                "frameBorderWidth": 1,
+                "chartBorderWidth": 1,
+                "decorLineColor": "black",
+                "chartPortion": 0.7,
+                "chartAlpha": 0.5,
+                "eachPoint":[
+                  {"key":"C++", "value":30},
+                {"key":"Java", "value":75},
+                {"key":"JavaScript", "value":95},
+                {"key":"Python", "value":40},
+                {"key":"C#", "value":39},
+                {"key":"PHP", "value":55}]}'>
+            </ability-chart>
+          </div>
+
+          <div style="text-align: center">
+          <h3> customized style 5 </h3>
+          <!-- customized style 5 -->
+            <ability-chart prop='{
+                  "dimension": 500,
+                "numLayer": 5,
+                "eachLayerStyle":[
+                {
+                  "fillColor":"#bf0a0a",
+                  "borderColor": "#207476"
+                }, 
+                {
+                  "fillColor":"#ff6161",
+                  "borderColor": "#ffdba2"
+                }, 
+                {
+                  "fillColor":"#ffafa2",
+                  "borderColor": "#ffafa2"
+                },
+                {
+                  "fillColor":"#ffdba2",
+                  "borderColor": "#ff6161"
+                }, 
+                {
+                  "fillColor":"#ffffff",
+                  "borderColor": "#bf0a0a"
+                }],
+                "labelFont": "13px Arial",
+                "labelFontColor":"red",
+                "fillColor":"#ffc125",
+                "frameBorderWidth": 2,
+                "chartBorderWidth": 2,
+                "borderColor": "#207476",
+                "decorLineColor": "#207476",
+                "chartPortion": 0.8,
+                "chartAlpha": 0.5,
+                "eachPoint":[
+                  {"key":"Strength", "value":85},
+                {"key":"Stamina", "value":39},
+                {"key":"Perception", "value":55},
+                {"key":"Creativity", "value":77},
+                {"key":"Charisma", "value":95},
+                {"key":"Confidence", "value":84},
+                {"key":"Spirituality", "value":50},
+                {"key":"Discipline", "value":90},
+                {"key":"Luck", "value":69},
+                {"key":"Humor", "value":80},
+                {"key":"Social Skill", "value":30}]}'> 
+            </ability-chart>
+          </div>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
