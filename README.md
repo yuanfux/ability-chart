@@ -25,7 +25,9 @@ prop Name | Description
 --- | --- 
 dimension | A number (i.e. `300`). The height and width of the chart in px.
 numLayer | A number (i.e. `3`). The number of equally divided layers of the chart.
-eachLayerStyle | An array of object (i.e. `{"fillColor: "#bf0a0a", ""borderColor": "#207476""}`).`fillColor` is the color filled in the layer. `borderColor` is the border color of the layer.
+eachLayerStyle | An array of object (i.e. `{"fillColor: "#bf0a0a", ""borderColor": "#207476""}`).
+`fillColor` is the color filled in the layer. 
+`borderColor` is the border color of the layer.
 labelFont | A css font string (i.e. `"12px Arial"`). The font of labels.
 labelFontColor | A css color string (i.e. `"black"`). The color of labels.
 fillColor | A css color string (i.e. `"#d666c6"`). The color of defined chart area.
