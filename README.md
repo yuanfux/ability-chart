@@ -40,7 +40,6 @@ eachPoint | an array of object (i.e. `{"key":"Strength", "value":30}`)<br>`key` 
 ## Example
 <!--
 ```
-```
 <custom-element-demo>
   <template>
     <link rel="import" href="ability-chart.html">

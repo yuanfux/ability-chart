@@ -2,7 +2,6 @@
   "name": "ability-chart",
   "description": "A canvas based ability chart component",
   "main": "ability-chart.html",
-  "license": "MIT",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0"
   },
