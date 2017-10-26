@@ -7,7 +7,16 @@ An easy to use and fully customizable ability chart web component based on Polym
 
 ## Usage
 Add onto html just as normal tag elements. Pass a json object into the attribute `prop` to set up all the styles you want.
-
+<!--
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="ability-chart.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
 ```html
 <ability-chart prop='{
                   "eachPoint":[
@@ -38,25 +47,53 @@ chartAlpha | a number (i.e. `0.7`)<br>the opacity of the defined chart area
 eachPoint | an array of object (i.e. `{"key":"Strength", "value":30}`)<br>`key` is the label of each vertex<br>`value` is the vertex value between 0 and 100
 
 ## Example
-<!--
-```
-<custom-element-demo>
-  <template>
-    <link rel="import" href="ability-chart.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
+Here is a fully customized example. For more examples, check out demo in the repo.
 ```html
 <ability-chart prop='{
-                  "eachPoint":[
-	                  {"key":"Math", "value":85},
-	                  {"key":"Physics", "value":30},
-	                  {"key":"English", "value":55},
-	                  {"key":"Chemistry", "value":100},
-	                  {"key":"Chinese", "value":10},
-	                  {"key":"History", "value":100}]}'>               	
+                    "dimension": 500, 
+                    "numLayer": 5,
+                    "eachLayerStyle":[
+		                {
+		                  "fillColor":"#bf0a0a",
+		                  "borderColor": "#207476"
+		                }, 
+		                {
+		                  "fillColor":"#ff6161",
+		                  "borderColor": "#ffdba2"
+		                }, 
+		                {
+		                  "fillColor":"#ffafa2",
+		                  "borderColor": "#ffafa2"
+		                },
+		                {
+		                  "fillColor":"#ffdba2",
+		                  "borderColor": "#ff6161"
+		                }, 
+		                {
+		                  "fillColor":"#ffffff",
+		                  "borderColor": "#bf0a0a"
+		                }],
+	                "labelFont": "13px Arial",
+	                "labelFontColor":"red",
+	                "fillColor":"#ffc125",
+	                "frameBorderWidth": 2,
+	                "chartBorderWidth": 2,
+	                "borderColor": "#207476",
+	                "decorLineColor": "#207476",
+	                "chartPortion": 0.8,
+	                "chartAlpha": 0.5,
+	                "eachPoint":[
+	                    {"key":"Strength", "value":85},
+		                {"key":"Stamina", "value":39},
+		                {"key":"Perception", "value":55},
+		                {"key":"Creativity", "value":77},
+		                {"key":"Charisma", "value":95},
+		                {"key":"Confidence", "value":84},
+		                {"key":"Spirituality", "value":50},
+		                {"key":"Discipline", "value":90},
+		                {"key":"Luck", "value":69},
+		                {"key":"Humor", "value":80},
+		                {"key":"Social Skill", "value":30}]}'> 
 </ability-chart>
 ```
 ## License
