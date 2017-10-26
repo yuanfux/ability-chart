@@ -6,7 +6,7 @@ A canvas based ability chart component
 An easy to use and fully customizable ability chart web component based on Polymer 2.0.
 
 ## Usage
-Add onto html just as normal tag elements. Use attribute `prop` to set up all the styles you want.
+Add onto html just as normal tag elements. Pass a json object into the attribute `prop` to set up all the styles you want.
 
 ```html
 <ability-chart prop='{
@@ -37,5 +37,26 @@ chartPortion | a number (i.e. `0.7`)<br>the portion of the chart within the canv
 chartAlpha | a number (i.e. `0.7`)<br>the opacity of the defined chart area
 eachPoint | an array of object (i.e. `{"key":"Strength", "value":30}`)<br>`key` is the label of each vertex<br>`value` is the vertex value between 0 and 100
 
+## Example
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="ability-chart.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+
+```html
+<ability-chart prop='{
+                  "eachPoint":[
+	                  {"key":"Math", "value":85},
+	                  {"key":"Physics", "value":30},
+	                  {"key":"English", "value":55},
+	                  {"key":"Chemistry", "value":100},
+	                  {"key":"Chinese", "value":10},
+	                  {"key":"History", "value":100}]}'>               	
+</ability-chart>
+```
 ## License
 MIT
