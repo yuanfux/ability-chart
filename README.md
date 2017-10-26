@@ -23,19 +23,19 @@ Add onto html just as normal tag elements. Use attribute `prop` to set up all th
 
 prop Name | Description
 --- | --- 
-dimension | A number (i.e. 300). The height and width of the chart.
-numLayer | A number (i.e. 3). The number of equally divided layers of the chart.
-eachLayerStyle | An array of object (i.e. `{"fillColor: "#bf0a0a", ""borderColor": "#207476""}`).
-labelFont | A css font string (i.e. "12px Arial"). The font of labels.
-labelFontColor | A css color string (i.e. "black"). The color of labels.
-fillColor | A css color string (i.e. "#d666c6"). The color of defined chart area.
-borderColor | A css color string (i.e. "#d666c6"). The border color of defined chart area.
-frameBorderWidth | A number (i.e. 1). The border width of the chart frame. 
-chartBorderWidth | A number (i.e. 1). The border width of the defined chart.
-decorLineColor | A css color string (i.e. "black"). The color of the center-to-vertex decoration lines.
-chartPortion | A number (i.e. 0.7). The portion of the chart within the canvas. 
-chartAlpha | A number (i.e. 0.7). The opacity of the defined chart.
-eachPoint | An array of object (i.e. `{"key":"Strength", "value":30}`).
+dimension | A number (i.e. `300`). The height and width of the chart in px.
+numLayer | A number (i.e. `3`). The number of equally divided layers of the chart.
+eachLayerStyle | An array of object (i.e. `{"fillColor: "#bf0a0a", ""borderColor": "#207476""}`).`fillColor` is the color filled in the layer. `borderColor` is the border color of the layer.
+labelFont | A css font string (i.e. `"12px Arial"`). The font of labels.
+labelFontColor | A css color string (i.e. `"black"`). The color of labels.
+fillColor | A css color string (i.e. `"#d666c6"`). The color of defined chart area.
+borderColor | A css color string (i.e. `"#d666c6"`). The border color of defined chart area.
+frameBorderWidth | A number (i.e. `1`). The border width of the chart frame. 
+chartBorderWidth | A number (i.e. `1`). The border width of the defined chart area.
+decorLineColor | A css color string (i.e. `"black"`). The color of the center-to-vertex decoration lines.
+chartPortion | A number (i.e. `0.7`). The portion of the chart within the canvas. 
+chartAlpha | A number (i.e. `0.7`). The opacity of the defined chart area.
+eachPoint | An array of object (i.e. `{"key":"Strength", "value":30}`). `key` is the label of each vertex. `value` is the vertex value between 0 and 100.
 
 ## License
 MIT
