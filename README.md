@@ -38,6 +38,8 @@ chartAlpha | a number (i.e. `0.7`)<br>the opacity of the defined chart area
 eachPoint | an array of object (i.e. `{"key":"Strength", "value":30}`)<br>`key` is the label of each vertex<br>`value` is the vertex value between 0 and 100
 
 ## Example
+<!--
+```
 ```
 <custom-element-demo>
   <template>
@@ -46,7 +48,7 @@ eachPoint | an array of object (i.e. `{"key":"Strength", "value":30}`)<br>`key` 
   </template>
 </custom-element-demo>
 ```
-
+-->
 ```html
 <ability-chart prop='{
                   "eachPoint":[
