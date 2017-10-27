@@ -5,9 +5,13 @@ A canvas based ability chart component
 
 ## Preview
 An easy to use and fully customizable ability chart web component based on Polymer 2.0.
+
 ![img broken](/demoImg/demo1.png "ability-chart demo1")
+
 ![img broken](/demoImg/demo2.png "ability-chart demo2")
+
 ![img broken](/demoImg/demo3.png "ability-chart demo3")
+
 ## Usage
 Add onto html just as normal tag elements. Pass a json object into the attribute `prop` to set up all the styles you want.
 <!--
