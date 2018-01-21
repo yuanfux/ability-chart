@@ -37,7 +37,7 @@ Add onto html just as normal tag elements. Pass a json object into the attribute
 ## prop Options
 
 prop Name | Description | Type | Example | Default
---- | --- | --- | ---
+--- | --- | --- | --- | ---
 prop.dimension | the height and width of the chart in px | Number | `300` | `300`
 prop.numLayer | the number of equally divided layers of the chart<br> must be defined if scale label needs to be shown | Number | `1`| `1`
 prop.eachLayerStyle | an array of object defines each layer style)| Array<Object> | `[{"fillColor": "#bf0a0a", ""borderColor": "#207476""}]` | -
