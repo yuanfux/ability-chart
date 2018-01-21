@@ -14,6 +14,25 @@
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
+        .center {
+          text-align: center
+        }
+        .red-block {
+          vertical-align: middle;
+          background-color: #d53c37;
+          display: inline-block;
+          height: 3px;
+          width: 30px;
+          margin: 0;
+        }
+        .blue-block {
+          vertical-align: middle;
+          background-color: #334b5c;
+          display: inline-block;
+          height: 3px;
+          width: 30px;
+          margin: 0;
+        }
       </style>
     </custom-style>
   </head>
@@ -22,7 +41,7 @@
       <h3>Basic ability-chart demo</h3>
       <demo-snippet>
         <template>
-         <div style="text-align: center">
+         <div class="center">
           <h3> Customized Style I </h3>
           <!-- customized style 1 -->
            <ability-chart prop='{
@@ -33,7 +52,7 @@
            </ability-chart>
          </div>
 
-         <div style="text-align: center">
+         <div class="center">
           <h3> Customized Style II </h3>
           <!-- customized style 2 -->
            <ability-chart prop='{
@@ -54,7 +73,7 @@
             </ability-chart>
           </div>
 
-          <div style="text-align: center">
+          <div class="center">
           <h3> Customized Style III </h3>
           <!-- customized style 3 -->
             <ability-chart prop='{
@@ -77,7 +96,7 @@
             </ability-chart>
           </div>
 
-          <div style="text-align: center">
+          <div class="center">
           <h3> Customized Style IV </h3>
           <!-- customized style 4 -->
             <ability-chart prop='{
@@ -124,7 +143,7 @@
             </ability-chart>
           </div>
 
-          <div style="text-align: center">
+          <div class="center">
           <h3> Customized Style V </h3>
           <!-- customized style 5 -->
             <ability-chart prop='{
@@ -179,6 +198,14 @@
                   }
                 }'>
             </ability-chart>
+            <div>
+              <div class="red-block">
+              </div>
+              <span>Jason</span>
+              <div class="blue-block">
+              </div>
+              <span>Austin</span>
+            </div
           </div>
         </template>
       </demo-snippet>
