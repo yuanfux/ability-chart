@@ -94,18 +94,22 @@ var components = {
 			"title": "AsciiDoc",
 			"owner": "Golmote"
 		},
+		"asm6502": {
+			"title": "6502 Assembly",
+			"owner": "kzurawel"
+		},
 		"aspnet": {
 			"title": "ASP.NET (C#)",
 			"require": "markup",
 			"owner": "nauzilus"
 		},
-		"autoit": {
-			"title": "AutoIt",
-			"owner": "Golmote"
-		},
 		"autohotkey": {
 			"title": "AutoHotkey",
 			"owner": "aviaryan"
+		},
+		"autoit": {
+			"title": "AutoIt",
+			"owner": "Golmote"
 		},
 		"bash": {
 			"title": "Bash",
@@ -193,6 +197,10 @@ var components = {
 			"title": "Elixir",
 			"owner": "Golmote"
 		},
+		"elm": {
+			"title": "Elm",
+			"owner": "zwilias"
+		},
 		"erlang": {
 			"title": "Erlang",
 			"owner": "Golmote"
@@ -201,6 +209,11 @@ var components = {
 			"title": "F#",
 			"require": "clike",
 			"owner": "simonreynolds7"
+		},
+		"flow": {
+			"title": "Flow",
+			"require": "javascript",
+			"owner": "Golmote"
 		},
 		"fortran": {
 			"title": "Fortran",
@@ -256,6 +269,10 @@ var components = {
 			"title": "HTTP",
 			"owner": "danielgtaylor"
 		},
+		"ichigojam": {
+			"title": "IchigoJam",
+			"owner": "BlueCocoa"
+		},
 		"icon": {
 			"title": "Icon",
 			"owner": "Golmote"
@@ -267,6 +284,10 @@ var components = {
 		"ini": {
 			"title": "Ini",
 			"owner": "aviaryan"
+		},
+		"io": {
+			"title": "Io",
+			"owner": "AlesTsurko"
 		},
 		"j": {
 			"title": "J",
@@ -589,6 +610,11 @@ var components = {
 			"require": "markup",
 			"owner": "Golmote"
 		},
+		"xeora": {
+			"title": "Xeora",
+			"require": "markup",
+			"owner": "freakmaxi"
+		},
 		"xojo": {
 			"title": "Xojo (REALbasic)",
 			"owner": "Golmote"
@@ -641,33 +667,8 @@ var components = {
 			"owner": "Golmote",
 			"noCSS": true
 		},
-		"previewer-base": {
-			"title": "Previewer: Base",
-			"owner": "Golmote"
-		},
-		"previewer-color": {
-			"title": "Previewer: Color",
-			"require": "previewer-base",
-			"owner": "Golmote"
-		},
-		"previewer-gradient": {
-			"title": "Previewer: Gradient",
-			"require": "previewer-base",
-			"owner": "Golmote"
-		},
-		"previewer-easing": {
-			"title": "Previewer: Easing",
-			"require": "previewer-base",
-			"owner": "Golmote"
-		},
-		"previewer-time": {
-			"title": "Previewer: Time",
-			"require": "previewer-base",
-			"owner": "Golmote"
-		},
-		"previewer-angle": {
-			"title": "Previewer: Angle",
-			"require": "previewer-base",
+		"previewers": {
+			"title": "Previewers",
 			"owner": "Golmote"
 		},
 		"autoloader": {

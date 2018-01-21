@@ -2,7 +2,7 @@
 
 <dom-module id="ability-chart">
 
-  <template>  
+  <template>
     <canvas id="canvas">
     </canvas>
   </template>
@@ -11,7 +11,7 @@
     /**
      * `ability-chart`
      * A canvas based ability chart component @yuanfux
-     * 
+     *
      * @customElement
      * @polymer
      * @demo demo/index.html
@@ -20,15 +20,73 @@
 
       static get is() { return 'ability-chart'; }
 
-      static get observedAttributes(){ return ['prop']; }
-
-      constructor(){
-        super();
-      }
-
-      connectedCallback(){
-        super.connectedCallback();
-        this.buildChart();
+      static get properties() {
+        return {
+          prop: {
+            type: Object,
+            observer: 'buildChart'
+          },
+          dimension: {
+            type: Number,
+            readOnly: true,
+            value: 300
+          },
+          numLayer: {
+            type: Number,
+            readOnly: true,
+            value: 1
+          },
+          labelFont: {
+            type: String,
+            readOnly: true,
+            value: '12px Arial'
+          },
+          labelFontColor: {
+            type: String,
+            readOnly: true
+          },
+          frameBorderWidth: {
+            type: Number,
+            readOnly: true
+          },
+          chartBorderWidth: {
+            type: Number,
+            readOnly: true
+          },
+          decorLineColor: {
+            type: String,
+            readOnly: true
+          },
+          chartPortion: {
+            type: Number,
+            readOnly: true,
+            value: 0.85
+          },
+          chartAlpha: {
+            type: Number,
+            readOnly: true
+          },
+          eachLayerStyle: {
+            type: Array,
+            readOnly: true
+          },
+          valueSets: {
+            type: Array,
+            readOnly: true
+          },
+          numPoint: {
+            type: Number,
+            readOnly: true
+          },
+          scale: {
+            type: Object,
+            readOnly: true
+          },
+          labelOffset: {
+            type: Number,
+            readOnly: true
+          }
+        }
       }
 
       buildChart(){
@@ -37,35 +95,64 @@
       }
 
       initData(){
-        let prop = JSON.parse(this.getAttribute("prop"));
-        this.dimension = prop.dimension? prop.dimension : 300;
-        this.numLayer = prop.numLayer? prop.numLayer : 1;
-        this.labelFont = prop.labelFont? prop.labelFont : "12px Arial";
-        this.labelFontColor = prop.labelFontColor? prop.labelFontColor : null;
-        this.fillColor = prop.fillColor? prop.fillColor : null;
-        this.frameBorderWidth = prop.frameBorderWidth? prop.frameBorderWidth : null;
-        this.chartBorderWidth = prop.chartBorderWidth? prop.chartBorderWidth : null;
-        this.borderColor = prop.borderColor? prop.borderColor : null;
-        this.decorLineColor = prop.decorLineColor? prop.decorLineColor : null;
-        this.chartPortion = prop.chartPortion? prop.chartPortion : 0.85;
-        this.chartAlpha = prop.chartAlpha? prop.chartAlpha : null;
-        this.eachVal = [];
-        this.eachLabel = [];
+        let prop = this.prop;
+        if (prop.dimension) {
+          this._setDimension(prop.dimension);
+        }
+        if (prop.numLayer) {
+          this._setNumLayer(prop.numLayer);
+        }
+        if (prop.labelFont) {
+          this._setLabelFont(prop.labelFont);
+        }
+        if (prop.labelFontColor) {
+          this._setLabelFontColor(prop.labelFontColor);
+        }
+        if (prop.frameBorderWidth) {
+          this._setFrameBorderWidth(prop.frameBorderWidth);
+        }
+        if (prop.chartBorderWidth) {
+          this._setChartBorderWidth(prop.chartBorderWidth);
+        }
+        if (prop.decorLineColor) {
+          this._setDecorLineColor(prop.decorLineColor);
+        }
+        if (prop.chartPortion) {
+          this._setChartPortion(prop.chartPortion);
+        }
+        if (prop.chartAlpha) {
+          this._setChartAlpha(prop.chartAlpha);
+        }
+        if (prop.scale) {
+          this._setScale(prop.scale);
+        }
+        if (prop.labelOffset) {
+          this._setLabelOffset(prop.labelOffset);
+        }
+
         if(prop.eachLayerStyle){
-          this.eachLayerStyle = [];
+          let eachLayerStyle = [];
           prop.eachLayerStyle.map((obj) => {
             let tempStyle = [];
             tempStyle.push(obj.fillColor);
             tempStyle.push(obj.borderColor);
-            this.eachLayerStyle.push(tempStyle);
+            eachLayerStyle.push(tempStyle);
           });
+          this._setEachLayerStyle(eachLayerStyle);
         }
-        prop.eachPoint.map((obj) => {
-          let normalizedVal = (obj.value/100).toFixed(2);
-          this.eachVal.push(normalizedVal);
-          this.eachLabel.push(obj.key);
-        });
-        this.numPoint = this.eachVal.length;
+
+        let valueSets = [];
+        prop.datasets.values.forEach(
+          (eachSet) => {
+            let valueSet = eachSet.map(
+              (value) => (value/100).toFixed(2)
+            );
+            valueSets.push(valueSet);
+          }
+        );
+        this._setValueSets(valueSets);
+        this._setNumPoint(prop.datasets.keys.length);
+        this.generateAnchorPts(this.chartPortion*this.dimension/2, this.numPoint);
       }
 
       initChart(){
@@ -88,30 +175,35 @@
           for(let j = 0 ; j < this.numPoint ; j++){
             tempK.push(coef);
           }
-          this.drawPolygon(ctx ,this.dimension/2, this.dimension/2, this.chartPortion*this.dimension/2, this.numPoint, tempK, this.eachLayerStyle? this.eachLayerStyle[i][0] : null, this.frameBorderWidth, this.eachLayerStyle? this.eachLayerStyle[i][1] : null);
+          this.drawPolygon(ctx ,this.dimension/2, this.dimension/2, this.numPoint, tempK, this.eachLayerStyle? this.eachLayerStyle[i][0] : null, this.frameBorderWidth, this.eachLayerStyle? this.eachLayerStyle[i][1] : null);
         }
+
         //center to vertex line
-        this.drawDecorationLine(ctx ,this.dimension/2, this.dimension/2, this.chartPortion*this.dimension/2, this.numPoint);
+        this.drawDecorationLine(ctx ,this.dimension/2, this.dimension/2, this.numPoint);
         //actual chart
-        this.drawPolygon(ctx ,this.dimension/2, this.dimension/2, this.chartPortion*this.dimension/2, this.numPoint, this.eachVal, this.fillColor, this.chartBorderWidth, this.borderColor, this.chartAlpha);
-        //recompute should've finished by this time
-        this.reCompute = false;
+        for (let i = 0 ; i < this.prop.datasets.values.length ; i++) {
+          const fillColor = this.prop.datasets.styles ? this.prop.datasets.styles[i].fillColor : null;
+          const borderColor = this.prop.datasets.styles ? this.prop.datasets.styles[i].borderColor : null;
+          this.drawPolygon(ctx ,this.dimension/2, this.dimension/2, this.numPoint, this.valueSets[i], fillColor, this.chartBorderWidth, borderColor, this.chartAlpha);
+        }
+        // this.drawPolygon(ctx ,this.dimension/2, this.dimension/2, this.numPoint, this.eachVal, this.fillColor, this.chartBorderWidth, this.borderColor, this.chartAlpha);
+        //scale label
+        if (this.scale) {
+          this.drawScale(ctx, this.dimension/2, this.dimension/2, this.numLayer, this.chartPortion, this.scale.scaleLabel, this.scale.font, this.scale.fontColor, this.scale.offset);
+        }
       }
 
       generateAnchorPts(radius, sides){
-        if(!this.anchorPts || this.reCompute){
-          this.anchorPts = [];
-          let eachAngle = ((Math.PI * 2)/sides);
-          this.anchorPts.push([0, -radius]);
-          for(let i = 1; i < sides; i++){
-            this.anchorPts.push([radius*Math.cos(-Math.PI/2 + eachAngle*i), radius*Math.sin(-Math.PI/2 + eachAngle*i)]);
-          }
+        this.anchorPts = [];
+        let eachAngle = ((Math.PI * 2)/sides);
+        this.anchorPts.push([0, -radius]);
+        for(let i = 1; i < sides; i++){
+          this.anchorPts.push([radius*Math.cos(-Math.PI/2 + eachAngle*i), radius*Math.sin(-Math.PI/2 + eachAngle*i)]);
         }
       }
 
-      drawPolygon(ctx, x, y, radius, sides, k, fillColor, borderWidth, borderColor, alpha){
+      drawPolygon(ctx, x, y, sides, k, fillColor, borderWidth, borderColor, alpha){
         if (sides < 3) return;
-        this.generateAnchorPts(radius, sides);
         ctx.save();
         ctx.beginPath();
         ctx.translate(x,y);
@@ -148,9 +240,8 @@
         ctx.restore();
       }
 
-      drawDecorationLine(ctx, x, y, radius, sides){
+      drawDecorationLine(ctx, x, y, sides){
         if (sides < 3) return;
-        this.generateAnchorPts(radius, sides);
         for(let i = 0 ; i < this.anchorPts.length ; i++){
           this.drawLine(ctx, x, y, this.anchorPts[i][0], this.anchorPts[i][1], this.frameBorderWidth, this.decorLineColor);
           let alignment = "start";
@@ -172,7 +263,7 @@
           else if(this.anchorPts[i][1] < -0.0000001){
             alignment += "Bot";
           }
-          this.drawText(ctx, this.eachLabel[i], this.labelFont, this.labelFontColor, alignment, x, y, this.anchorPts[i][0], this.anchorPts[i][1], maxWidth);
+          this.drawText(ctx, this.prop.datasets.keys[i], this.labelFont, this.labelFontColor, alignment, x, y, this.anchorPts[i][0], this.anchorPts[i][1], maxWidth, this.labelOffset);
         }
       }
 
@@ -190,7 +281,7 @@
         ctx.restore();
       }
 
-      drawText(ctx, text, font, fillStyle, alignment, x0, y0, x1, y1,maxWidth){
+      drawText(ctx, text, font, fillStyle, alignment, x0, y0, x1, y1,maxWidth, offset){
         ctx.save();
         if(font)
         ctx.font = font;
@@ -217,16 +308,42 @@
         else if(alignment.indexOf("start") >= 0){
           ctx.textAlign = "start";
         }
+
+        if (offset) {
+          const mag = Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2));
+          const extendedMag = mag + offset;
+          const ratio = extendedMag / mag;
+          x1 = x1 * ratio;
+          y1 = y1 * ratio;
+        }
+
         ctx.translate(x0, y0);
         ctx.fillText(text, x1, y1, maxWidth);
         ctx.restore();
       }
 
-      attributeChangedCallback(attr, oldVal, newVal){
-        if(oldVal && newVal){
-          this.reCompute = true;
-          this.buildChart();
+      drawScale(ctx, x, y, numLayer, chartPortion, scaleLabel, font, fillStyle, offset) {
+        const outmostY = -chartPortion * x;
+        for (let i = 0 ; i <= numLayer ; i++) {
+          const coef = (1 / numLayer ) * i;
+          const curY = outmostY * coef;
+          this.drawSingleScale(ctx, scaleLabel[i], font, fillStyle, x, y, 0, curY, offset);
         }
+      }
+
+      drawSingleScale(ctx, text, font, fillStyle, x0, y0, x1, y1, offset) {
+        ctx.save();
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        if(font)
+        ctx.font = font;
+
+        if(fillStyle)
+        ctx.fillStyle = fillStyle;
+
+        ctx.translate(x0, y0);
+        ctx.fillText(text, x1 + offset, y1);
+        ctx.restore();
       }
     }
 
