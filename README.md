@@ -34,13 +34,13 @@ Add onto html just as normal tag elements. Pass a json object into the attribute
                   }'>
 </ability-chart>
 ```
-## prop Options
+## Params
 
-prop Name | Description | Type | Example | Default
+Param Name | Description | Type | Example | Default
 --- | --- | --- | --- | ---
 prop.dimension | the height and width of the chart in px | Number | `300` | `300`
 prop.numLayer | the number of equally divided layers of the chart<br> must be defined if scale label needs to be shown | Number | `1`| `1`
-prop.eachLayerStyle | an array of object defines each layer style)| Array<Object> | `[{"fillColor": "#bf0a0a", ""borderColor": "#207476""}]` | -
+prop.eachLayerStyle | an array of object defines each layer style)| Array&lt;Object&gt; | `[{"fillColor": "#bf0a0a", ""borderColor": "#207476""}]` | -
 prop.eachLayerStyle.fillColor | the color of layer area | String | `"#d666c6"` | -
 prop.eachLayerStyle.borderColor | the border color of layer area | String | `"#d666c6"` | -
 prop.scale | an object defines the scale labels | Object |`"scale": {"font": "bold 12px Arial", "fontColor": "black", "offset": 12, "scaleLabel": ["0", "20", "40"]}` | -
@@ -57,9 +57,9 @@ prop.decorLineColor | the color of the center-to-vertex decoration lines | Strin
 prop.chartPortion | the portion of the chart within the canvas | Number | `0.85` | `0.85`
 prop.chartAlpha | the opacity of the defined chart area | Number | `0.5` | -
 prop.datasets | an object defines the data, data labels and data styles | Object |`"datasets": {"keys": ["Leadership", "Teamwork", "Management", "Visionary"], "values": [[79, 35, 55, 89]], "styles": [{"fillColor":"#ea9513", "borderColor": "#ea9513"}]}` | -
-prop.datasets.keys | the labels of the chart | Array<String> | `["Leadership", "Teamwork", "Management", "Visionary"]` | -
-prop.datasets.values | the data of the chart | Array<Array<Number>> | `[[79, 35, 55, 89]]` | -
-prop.datasets.styles | the styles of datasets | Array<Object> | `[{"fillColor":"#ea9513", "borderColor": "#ea9513"}]` | -
+prop.datasets.keys | the labels of the chart | Array&lt;String&gt; | `["Leadership", "Teamwork", "Management", "Visionary"]` | -
+prop.datasets.values | the data of the chart | Array&lt;Array&lt;Number&gt;&gt; | `[[79, 35, 55, 89]]` | -
+prop.datasets.styles | the styles of datasets | Array&lt;Object&gt; | `[{"fillColor":"#ea9513", "borderColor": "#ea9513"}]` | -
 prop.datasets.styles.fillColor | the color of a chart data area | String | `"#ea9513"` | -
 prop.datasets.styles.borderColor | the border color of a chart data area | String | `"#ea9513"` | -
 
