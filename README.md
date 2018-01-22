@@ -25,8 +25,7 @@ Add onto html just as normal tag elements. Pass a json object into the attribute
 ```
 -->
 ```html
-<ability-chart prop='
-                  {
+<ability-chart prop='{
                      "datasets":{
                        "keys": ["Math", "Physics", "Physics", "Chemistry", "Chinese", "History"],
                        "values": [[85, 30, 55, 100, 10, 100]]
