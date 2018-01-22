@@ -16,7 +16,7 @@ An easy to use and fully customizable ability chart web component based on Polym
 
 `bower install ability-chart --save`
 
-### Import ability-chart component to your project
+Import ability-chart component to your project
 
 `<link rel="import" href="YOUR_PATH/bower_components/ability-chart/ability-chart.html">`
 
