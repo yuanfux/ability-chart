@@ -13,5 +13,7 @@
   },
   "resolutions": {
     "polymer": "^2.0.0"
-  }
+  },
+  "keywords": ["ability", "chart", "radar", "radar chart", "ability chart"],
+  "authors": ["Yuan Fu <yuanfu@usc.edu>"]
 }
