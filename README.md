@@ -1,4 +1,5 @@
 # \<ability-chart\>
+[![GitHub version](https://badge.fury.io/gh/yuanfux%2Fability-chart.svg)](https://badge.fury.io/gh/yuanfux%2Fability-chart)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/yuanfux/ability-chart)
 
 A canvas based ability chart component
