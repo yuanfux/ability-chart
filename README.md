@@ -7,11 +7,11 @@ A canvas based ability chart component
 ## Preview
 An easy to use and fully customizable ability chart web component based on Polymer 2.0.
 
-![img broken](https://drive.google.com/uc?id=1L_M4znzFpRB2A066MWy2dC6cPHSSU9FG "ability-chart demo1")
+![img broken](./images/demo1.png "ability-chart demo1")
 
-![img broken](https://drive.google.com/uc?id=1ITUcJlZVAhYFMM1sHxdIieyQGE2fUS-Y "ability-chart demo2")
+![img broken](./images/demo2.png "ability-chart demo2")
 
-![img broken](https://drive.google.com/uc?id=18Iz7ylca5BpQ53UPM0I4wYWFenUaFXmW "ability-chart demo3")
+![img broken](./images/demo3.png "ability-chart demo3")
 
 ## Install
 1. Install bower dependency

@@ -19,6 +19,7 @@
   "ignore": [
     "**/.*",
     "bower_components",
-    "test"
+    "test",
+    "images"
   ]
 }
